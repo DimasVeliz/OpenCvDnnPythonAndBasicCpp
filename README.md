@@ -1,11 +1,14 @@
 # This repository features a very basic python script to do object detection as well as a c++ file showing how to capture videos with your webcam and stream the frames
 
-## requirements both files need are opencv3.2 or higher and cmake.
+## Requirements .
+1. System:
+⋅⋅* Opencv3.2 or higher 
+⋅⋅* Cmake.
 
-## The python script requires:
-``` bash
-$ pip3 install numpy
-```
+2. The python script requires:
+    ``` bash
+    $ pip3 install numpy
+    ```
 ### to run and compile the c++ file:
 ```bash
 $ mkdir build && cd build
