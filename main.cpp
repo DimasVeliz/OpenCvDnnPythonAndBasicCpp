@@ -3,7 +3,7 @@
 
 using namespace cv;
 
-int openImageAndMirror(char *path)
+int openImage(char *path)
 {
 
     Mat image;
