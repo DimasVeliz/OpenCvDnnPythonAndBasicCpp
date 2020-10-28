@@ -2,8 +2,8 @@
 
 ## Requirements .
 1. System:
-⋅⋅* Opencv3.2 or higher 
-⋅⋅* Cmake.
+    1. Opencv3.2 or higher 
+    2. Cmake.
 
 2. The python script requires:
     ``` bash
