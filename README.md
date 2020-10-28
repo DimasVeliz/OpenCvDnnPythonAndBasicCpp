@@ -9,6 +9,18 @@
     ``` bash
     $ pip3 install numpy
     ```
+3. Get the weights:
+    ``` bash
+    $ wget https://pjreddie.com/media/files/yolov3-tiny.weights
+    ```
+
+    or 
+
+    ``` bash
+    $ wget https://pjreddie.com/media/files/yolov3.weights
+    ```
+
+
 ### to run and compile the c++ file:
 ```bash
 $ mkdir build && cd build
