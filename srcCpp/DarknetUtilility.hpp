@@ -12,9 +12,12 @@ private:
     std::vector<std::string> colors;
     std::vector<std::string> classes;
 
+    /*helper functions*/
+    std::vector<std::string> loadClasses();
+    std::vector<cv::Scalar> generateRandomColors();
+
 public:
     DarknetUtilility(/* args */);
     ~DarknetUtilility();
-    std::vector<std::string> loadClasses();
-    std::vector<cv::Scalar> generateRandomColors();
+    
 };
