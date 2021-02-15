@@ -277,7 +277,7 @@ int DarknetUtility::doImageProcessing(std::string imagePath)
         return -1;
     }
     cv::imshow("Predictions", annotatedPicture);
-    cv::waitKey(30);
+    cv::waitKey(0);
     cv::destroyAllWindows();
     return 0;
 }
