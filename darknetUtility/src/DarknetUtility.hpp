@@ -4,7 +4,7 @@
 
 using namespace cv;
 
-class DarknetUtilility
+class DarknetUtility
 {
 private:
     /*fields*/
@@ -18,7 +18,9 @@ private:
     std::vector<cv::Scalar> generateRandomColors();
 
 public:
-    DarknetUtilility(/* args */);
-    ~DarknetUtilility();
+    DarknetUtility(/* args */);
+    ~DarknetUtility();
+
+    std::string sayHi();
     
 };
