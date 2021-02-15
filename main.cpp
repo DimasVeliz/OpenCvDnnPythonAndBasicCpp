@@ -50,7 +50,7 @@ int capturingFromCamera()
         imshow("Frame", frame);
 
         //stop if a key is pressed
-        if (cvWaitKey(30) >= 0)
+        if (cv::waitKey(30) >= 0)
         {
             printf("stream manually stopped \n");
             break;
