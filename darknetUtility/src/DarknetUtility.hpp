@@ -12,6 +12,8 @@ private:
     std::string weightsFilePath;
     std::vector<std::string> colors;
     std::vector<std::string> classes;
+    cv::dnn::dnn4_v20190902::Net net;
+
 
     /*helper functions*/
     std::vector<std::string> loadClasses();
@@ -19,10 +21,10 @@ private:
 
 
     /*Internal Functionality around OpenCv*/
-    cv::dnn::dnn4_v20190902::Net loadNetWork();
+    void loadNetWork();
     std::vector<std::string> getOutputLayersName();
     void drawPred(int classId, float conf, int left, int top, int right, int bottom, Mat &frame);
-    void doPostProcessing(Mat &frame, const std::vector<Mat> &outs, cv::dnn::Net &net);
+    void doPostProcessing(Mat &frame, const std::vector<Mat> &outs);
     
     /*External Interface*/    
     int doInternalProcessing(cv::Mat imagePassed);
