@@ -1,8 +1,11 @@
 #include "DarknetUtility.hpp"
 
-DarknetUtility::DarknetUtility(/* args */)
+DarknetUtility::DarknetUtility(std::string configPath,std::string weightsPath, std::string labelsPath)
 {
-
+    this->configFilePath=configPath;
+    this->weightsFilePath=weightsPath;
+    this->labelsFilePath= labelsPath;
+    loadNetWork();
     loadClasses();
     generateRandomColors();
 }
@@ -15,18 +18,18 @@ DarknetUtility::~DarknetUtility()
 
 void DarknetUtility::loadNetWork()
 {
-    std::string pathToCfgtFile = this->configFilePath;
-    std::string pathToWeightFile = this->weightsFilePath;
+    
 
-    auto net = cv::dnn::readNetFromDarknet(pathToCfgtFile, pathToWeightFile);
+    auto net = cv::dnn::readNetFromDarknet(this->configFilePath, this->weightsFilePath);
     this->net = net;
     this->isConfigured = true;
 }
 
 void DarknetUtility::loadClasses()
 {
+    std::string fileGiven= this->labelsFilePath;
     std::vector<std::string> classes;
-    std::ifstream file("Hola.txt");
+    std::ifstream file(fileGiven);
     std::string str;
     while (std::getline(file, str))
     {
@@ -68,11 +71,8 @@ int DarknetUtility::doImageProcessing(std::string imagePath)
     return doInternalProcessing(image);
 }
 
-int DarknetUtility::capturingFromCamera(bool doDetection)
+int DarknetUtility::doVideoProcessing(cv::VideoCapture cap, bool doDetection)
 {
-    printf("about to open cam\n");
-
-    VideoCapture cap("/home/dimas/Documents/TensorFlowScripts/OpenCVDnnCppModule/obj/videos/dimasPateandoLong.MP4");
     // Check whether the camera opened properly or not
     if (!cap.isOpened())
     {
@@ -88,8 +88,8 @@ int DarknetUtility::capturingFromCamera(bool doDetection)
         // stop if no frames are captured
         if (frame.empty())
         {
-            printf("empty frame");
-            break;
+            std::cout << "Empty Frame" << std::endl;
+            return -1;
         }
 
         if (!doDetection)
@@ -116,6 +116,28 @@ int DarknetUtility::capturingFromCamera(bool doDetection)
     // Closing up
     destroyAllWindows();
     return 0;
+}
+
+int DarknetUtility::capturingFromCamera(int camNumber, bool doDetection)
+{
+    cv::VideoCapture cap(camNumber);
+    if (!cap.isOpened())
+    {
+        return -1;
+    }
+
+    return doVideoProcessing(cap, doDetection);
+}
+
+int DarknetUtility::capturingFromCamera(std::string streamerOrVideoFile, bool doDetection)
+{
+    cv::VideoCapture cap(streamerOrVideoFile);
+    if (!cap.isOpened())
+    {
+        return -1;
+    }
+
+    return doVideoProcessing(cap, doDetection);
 }
 
 std::string DarknetUtility::sayHi()

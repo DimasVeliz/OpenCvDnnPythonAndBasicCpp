@@ -10,6 +10,7 @@ private:
     /*fields*/
     std::string configFilePath;
     std::string weightsFilePath;
+    std::string labelsFilePath;
     std::vector<cv::Scalar> colors;
     std::vector<std::string> classes;
     cv::dnn::dnn4_v20190902::Net net;
@@ -28,16 +29,20 @@ private:
     void doPostProcessing(Mat &frame, const std::vector<Mat> &outs);
     
     int doInternalProcessing(cv::Mat imagePassed);
+    int doVideoProcessing(cv::VideoCapture cap, bool doDetection);
+
     
 
 public:
-    DarknetUtility(/* args */);
+    DarknetUtility(std::string configPath,std::string weightsPath,std::string labelsPath);
     ~DarknetUtility();
 
     
     /*External Interface*/    
     int doImageProcessing(std::string imagePath);
-    int capturingFromCamera(bool doDetection);
+    int capturingFromCamera(int camNumber, bool doDetection);
+    int capturingFromCamera(std::string streamerOrVideoFile, bool doDetection);
+
 
 
     std::string sayHi();
