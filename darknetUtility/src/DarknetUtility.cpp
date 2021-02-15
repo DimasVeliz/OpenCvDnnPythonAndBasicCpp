@@ -299,7 +299,7 @@ int DarknetUtility::doVideoProcessing(cv::VideoCapture cap, bool doDetection)
         // stop if no frames are captured
         if (frame.empty())
         {
-            std::cout << "Empty Frame" << std::endl;
+            std::cout << "Empty Frame or video ended" << std::endl;
             return -1;
         }
 

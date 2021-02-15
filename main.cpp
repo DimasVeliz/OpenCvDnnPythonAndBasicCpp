@@ -16,7 +16,7 @@ int main()
     /*utility.capturingFromCamera(0,false);*/
     /*utility.doImageProcessing(imagePath);*/
     /*utility.capturingFromCamera(0,true);*/
-    /*utility.capturingFromCamera(videoPath,true);*/
+    utility.capturingFromCamera(videoPath,true);
 
     return 0;
 }
