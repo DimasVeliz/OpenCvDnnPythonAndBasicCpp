@@ -11,5 +11,7 @@ int main()
     DarknetUtility utility(cfgFile,weightFile,labels);
     std::string resp= utility.sayHi();
     std::cout<<resp <<std::endl;
+
+    utility.capturingFromCamera(0,false);
     return 0;
 }

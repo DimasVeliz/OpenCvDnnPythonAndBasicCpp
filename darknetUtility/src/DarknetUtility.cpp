@@ -58,6 +58,14 @@ void DarknetUtility::generateRandomColors()
     this->colors = colors;
 }
 
+
+/*Internal Functionality around OpenCv*/
+
+int DarknetUtility::doInternalProcessing(cv::Mat imagePassed){
+    return 0;
+}
+
+
 /*External Interface*/
 int DarknetUtility::doImageProcessing(std::string imagePath)
 {
