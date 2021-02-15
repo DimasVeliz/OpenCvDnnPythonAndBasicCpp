@@ -9,9 +9,11 @@ int main()
     std::string imagePath = "/home/dimas/Documents/TensorFlowScripts/OpenCVDnnCppModule/obj/img/horses.jpg";
 
     DarknetUtility utility(cfgFile,weightFile,labels);
-    std::string resp= utility.sayHi();
-    std::cout<<resp <<std::endl;
+    
+    /*TEST*/
+    /*std::cout<<utility.sayHi() <<std::endl;*/
+    /*utility.capturingFromCamera(0,false);*/
 
-    utility.capturingFromCamera(0,false);
+    
     return 0;
 }

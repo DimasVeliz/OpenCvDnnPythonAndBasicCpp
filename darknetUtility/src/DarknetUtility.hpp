@@ -28,7 +28,7 @@ private:
     void drawPred(int classId, float conf, int left, int top, int right, int bottom, Mat &frame);
     void doPostProcessing(Mat &frame, const std::vector<Mat> &outs);
     
-    int doInternalProcessing(cv::Mat imagePassed);
+    cv::Mat doInternalProcessing(cv::Mat image);
     int doVideoProcessing(cv::VideoCapture cap, bool doDetection);
 
     
