@@ -7,6 +7,7 @@ using namespace cv;
 class DarknetUtilility
 {
 private:
+    /*fields*/
     std::string configFilePath;
     std::string weightsFilePath;
     std::vector<std::string> colors;
