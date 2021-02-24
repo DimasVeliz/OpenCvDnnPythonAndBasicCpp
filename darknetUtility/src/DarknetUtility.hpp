@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <opencv2/opencv.hpp>
+#include <fstream>
 
 using namespace cv;
 
@@ -13,7 +14,7 @@ private:
     std::string labelsFilePath;
     std::vector<cv::Scalar> colors;
     std::vector<std::string> classes;
-    cv::dnn::dnn4_v20190902::Net net;
+    cv::dnn::Net net;
     bool isConfigured;
 
 

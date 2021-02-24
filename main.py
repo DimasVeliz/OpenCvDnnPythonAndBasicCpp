@@ -68,8 +68,10 @@ def do_image_processing(net,classes,COLORS, imagePassed, isFromWebCam):
 
     # run inference through the network
     # and gather predictions from output layers
-    outs = net.forward(get_output_layers(net))
-
+    output_layers=get_output_layers(net)
+    
+    outs = net.forward(output_layers)
+   
     # initialization
     class_ids = []
     confidences = []
@@ -159,7 +161,7 @@ def main():
     if args.webcam:
         #start processing the frames of your webcam, pass true to the doDetection variable
         #for detecting objects within each frame, false to output the the camera captured content
-        do_video_processing(net,classes,COLORS,int(args.webcam),doDetection=False)
+        do_video_processing(net,classes,COLORS,int(args.webcam),doDetection=True)
     elif args.image:
         do_image_processing(net,classes,COLORS,args.image,False)
     else:
